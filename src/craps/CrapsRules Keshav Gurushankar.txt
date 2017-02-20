@@ -1,0 +1,12 @@
+Keshav Gurushankar Per. 8
+11/9/16
+
+Rules:
+At the beginning of the game...
+	If the player rolls a  7 or 11, the player automatically wins. 
+	If the player rolls a 2, 3, or 12, the player automatically loses
+	If the player rolls anything else, the points are set to the number rolled and the game continues.
+During the game...
+	If the player rolls a number that is the same number as the number of points, the player wins.
+	If the player rolls a 7, the player loses. 
+	If the player rolls anything else, the player keeps rolling until they get a 7 or the number that is the same number of points

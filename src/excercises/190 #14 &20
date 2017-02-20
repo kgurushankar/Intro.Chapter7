@@ -1,0 +1,56 @@
+Keshav Gurushankar Per.8
+11/15/16
+
+#14:
+boolean warm=false;
+		if (location.isTropics()) {
+			warm = true;
+		} else if (time.getMonth() == 4 || time.getMonth() == 10) {
+			if (weather.isSunny()) {
+				warm = true;
+			}
+		} else if (location.isNorthernHemisphere()) {
+			if (time.getMonth() >= 5 && time.getMonth() <= 9) {
+				warm = true;
+			}
+		} else if (location.isSouthernHemisphere()) {
+			if (time.getMonth() >= 11 || time.getMonth() <= 3) {
+				warm = true;
+			}
+		}
+		
+
+#20:
+
+private int nextPlay(char computerMove, char playerMove) {
+		switch (computerMove) {
+		case 'R':
+			switch (playerMove) {
+			case 'S':
+				return 1;
+			case 'P':
+				return -1;
+			default:
+				return 0;
+			}
+		case 'P':
+			switch (playerMove) {
+			case 'R':
+				return 1;
+			case 'S':
+				return -1;
+			default:
+				return 0;
+			}
+		default:
+			switch (playerMove) {
+			case 'P':
+				return 1;
+			case 'R':
+				return -1;
+			default:
+				return 0;
+			}
+		}
+	}
+
