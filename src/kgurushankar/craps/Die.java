@@ -1,4 +1,4 @@
-package craps;
+package kgurushankar.craps;
 
 public class Die {
 	private int numDots;

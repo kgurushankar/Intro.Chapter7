@@ -1,5 +1,4 @@
-
-package wages;
+package kgurushankar.wages;
 
 import java.awt.*;
 import javax.swing.*;
@@ -41,17 +40,17 @@ public class Wages extends JFrame {
 		inputRate.getDocument().addDocumentListener(new DocumentListener() {
 			@Override
 			public void changedUpdate(DocumentEvent arg0) {
-				trigger();
+				update();
 			}
 
 			@Override
 			public void insertUpdate(DocumentEvent arg0) {
-				trigger();
+				update();
 			}
 
 			@Override
 			public void removeUpdate(DocumentEvent arg0) {
-				trigger();
+				update();
 			}
 		});
 
@@ -59,22 +58,31 @@ public class Wages extends JFrame {
 
 			@Override
 			public void changedUpdate(DocumentEvent arg0) {
-				trigger();
+				update();
 			}
 
 			@Override
 			public void insertUpdate(DocumentEvent arg0) {
-				trigger();
+				update();
 			}
 
 			@Override
 			public void removeUpdate(DocumentEvent arg0) {
-				trigger();
+				update();
 			}
 		});
 
 	}
 
+	/**
+	 * Calculates total wages for a person<br />
+	 * This does take overtime into account
+	 * 
+	 * @param hours
+	 *            the hours worked in the week
+	 * @param rate
+	 *            the hourly rate paid
+	 */
 	public double totalWages(double hours, double rate) {
 		double wages;
 		wages = (hours * rate) + ((hours <= 40) ? 0 : (((hours - 40) * .5) * rate));
@@ -83,7 +91,8 @@ public class Wages extends JFrame {
 		return wages;
 	}
 
-	public void trigger() {
+	/** General method to update the values in the box */
+	public void update() {
 		DecimalFormat money = new DecimalFormat("$0.00");
 		if (emptyField()) {
 			String h = inputHours.getText();
@@ -110,6 +119,7 @@ public class Wages extends JFrame {
 		window.setVisible(true);
 	}
 
+	/** @return if either of the text-boxes are empty */
 	private boolean emptyField() {
 		boolean var = (inputHours.getText().equals("") || inputRate.getText().equals(""));
 		return !var;

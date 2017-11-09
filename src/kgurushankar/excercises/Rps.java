@@ -1,4 +1,4 @@
-package excercises;
+package kgurushankar.excercises;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -10,7 +10,7 @@ public class Rps extends JFrame implements ActionListener {
 	private JTextField display;
 
 	public Rps() {
-		super("Rock, paper, Scissors");
+		super("Rock, Paper, Scissors");
 
 		rock = new JRadioButton("   Rock   ", true);
 		paper = new JRadioButton("   Paper  ");
@@ -38,10 +38,58 @@ public class Rps extends JFrame implements ActionListener {
 	}
 
 	/**
-	 * returns -1 if the player wins, 0 if it's a tie, and 1 if the computer
-	 * wins
+	 * Determines the outcome of a Rock Paper Scissors game
+	 * 
+	 * @param computerMove
+	 *            value of the computers move
+	 * @param playerMove
+	 *            value of the players move
+	 * @pre both moves must be in format </br>
+	 *      <html>
+	 *      <table>
+	 *      <tr>
+	 *      <th>Value</th>
+	 *      <th>Meaning</th>
+	 *      </tr>
+	 *      <tr>
+	 *      <td>R</td>
+	 *      <td>Rock</td>
+	 *      </tr>
+	 *      <tr>
+	 *      <td>P</td>
+	 *      <td>Paper</td>
+	 *      </tr>
+	 *      <tr>
+	 *      <td>S</td>
+	 *      <td>Scissors</td>
+	 *      </tr>
+	 *      </table>
+	 *      </html>
+	 * @return <html>
+	 *         <table>
+	 *         <tr>
+	 *         <th>Value</th>
+	 *         <th>Case/Meaning</th>
+	 *         </tr>
+	 *         <tr>
+	 *         <td>-1</td>
+	 *         <td>Player Wins</td>
+	 *         </tr>
+	 *         <tr>
+	 *         <td>0</td>
+	 *         <td>Tie</td>
+	 *         </tr>
+	 *         <tr>
+	 *         <td>1</td>
+	 *         <td>Computer Wins</td>
+	 *         </tr>
+	 *         </table>
+	 *         </html>
 	 */
 	private int nextPlay(char computerMove, char playerMove) {
+		computerMove = (char) ((Character.isUpperCase(computerMove)) ? computerMove : (computerMove + 32));
+		playerMove = (char) ((Character.isUpperCase(playerMove)) ? playerMove : (playerMove + 32));
+
 		switch (computerMove) {
 		case 'R':
 			switch (playerMove) {

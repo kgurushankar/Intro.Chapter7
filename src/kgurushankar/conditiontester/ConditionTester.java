@@ -1,4 +1,6 @@
-package conditiontester;
+package kgurushankar.conditiontester;
+
+import java.awt.geom.*;
 
 /**	
  * This is the ConditionTester template. Use this class to test simple boolean methods!
@@ -68,7 +70,7 @@ public class ConditionTester {
 			DecimalFormat money = new DecimalFormat("$0.00");
 			System.out.println("The total cost of the order is " + money.format(ct.getOrderTotal(bp, nb)));
 			break;
-		case (6):
+		case (6): // RGB
 			System.out.println("Enter the red value =>");
 			int r = in.nextInt();
 			System.out.println("Enter the green value =>");
@@ -77,7 +79,7 @@ public class ConditionTester {
 			int b = in.nextInt();
 			System.out.println("The best color is " + ct.bestMatch(r, g, b) + ".");
 			break;
-		case (7):
+		case (7): // File
 			System.out.println("Enter the size of the first file =>");
 			int size1 = in.nextInt();
 			System.out.println("Enter the size of the second file =>");
@@ -109,22 +111,78 @@ public class ConditionTester {
 		}
 	}
 
-	public boolean exampleTestMethod(int x, int y) {
+	/** @return false */
+	public boolean exampleTestMethod() {
 		return false;
 	}
 
-	public boolean isPointinRect(int x, int y, int rectX, int rectY, int rectW, int rectH) {
+	/**
+	 * Checks if the point is in the rectangle
+	 * 
+	 * @param x
+	 *            x coordinate of the point
+	 * @param y
+	 *            y coordinate of the point
+	 * @param rectX
+	 *            x coordinate of the top right corner of the rectangle
+	 * @param rectY
+	 *            y coordinate of the top right corner of the rectangle
+	 * @param rectW
+	 *            width of the rectangle
+	 * @param rectH
+	 *            height of the rectangle
+	 * @return if the point is in the rectangle (boundary inclusive)
+	 */
+	public boolean isPointinRect(double x, double y, double rectX, double rectY, double rectW, double rectH) {
 		return x >= rectX && x <= rectX + rectW && y >= rectY && y <= rectY + rectH;
 	}
 
+	/**
+	 * Checks if point p is in rectangle r
+	 * 
+	 * @param p
+	 *            point that is being tested
+	 * @param r
+	 *            rectangle in which the point should be
+	 * @return if the point is in the rectangle (boundary inclusive)
+	 */
+	public boolean isPointinRect(Point2D.Double p, Rectangle2D r) {
+		return isPointinRect(p.getX(), p.getY(), r.getX(), r.getY(), r.getWidth(), r.getHeight());
+	}
+
+	/**
+	 * Checks if a year is a leap year
+	 * 
+	 * @param year
+	 *            the year being tested
+	 * @return if the year is a leap year
+	 */
 	public boolean isLeapYear(int year) {
 		return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
 	}
 
-	public boolean hasTwoEndingZeroes(int num) {
+	/**
+	 * Checks if a number has exactly two trailing zeroes
+	 * 
+	 * @param num
+	 *            number being tested
+	 * @return if the number has only two trailing zeroes
+	 */
+	public boolean hasTwoEndingZeroes(long num) {
 		return (num % 100 == 0 && num % 1000 != 0);
 	}
 
+	/**
+	 * Checks which date of a pair is later
+	 * 
+	 * @param da1
+	 *            the first date being tested
+	 * @param da2
+	 *            the second date being tested
+	 * @pre Both strings should be in the format m/d/y <br />
+	 *      0s at the beginning are optional but 75 is not acceptable for 1975
+	 * @return if da1 comes after da2
+	 */
 	public boolean isLater(String da1, String da2) {
 		String[] date1 = da1.split("/");
 		String[] date2 = da2.split("/");
@@ -134,9 +192,44 @@ public class ConditionTester {
 		int m2 = Integer.parseInt(date2[0]);
 		int d2 = Integer.parseInt(date2[1]);
 		int y2 = Integer.parseInt(date2[2]);
+		return isLater(m1, d1, y1, m2, d2, y2);
+	}
+
+	/**
+	 * Checks which date of a pair is later
+	 * 
+	 * @param m1
+	 *            the month of the first date
+	 * @param d1
+	 *            the day of the first date
+	 * @param y1
+	 *            the year of the first date
+	 * @param m2
+	 *            the month of the second date
+	 * @param d2
+	 *            the day of the second date
+	 * @param y2
+	 *            the year of the second date
+	 * @return if the first date (see above) comes after the second date
+	 * 
+	 */
+	public boolean isLater(int m1, int d1, int y1, int m2, int d2, int y2) {
 		return (y1 > y2) || ((y1 == y2) && ((m1 > m2) || ((m1 == m2) && (d1 > d2))));
 	}
 
+	/**
+	 * Gets the total cost of an order of books "Be Prepared" and "Next Best" <br />
+	 * "Be Prepared" books cost 18.95 and "Next Best" books cost 21.95. If bought
+	 * together (1 of each), both books cost 37.95. <br />
+	 * If 3-11 books are bought, each books costs 15.95 and if 12+ books are bought,
+	 * each book costs 14.00.
+	 * 
+	 * @param bp
+	 *            the number of "Be Prepared" books
+	 * @param nb
+	 *            the number of "Next Best" books
+	 * @return the total cost
+	 */
 	public Double getOrderTotal(int bp, int nb) {
 		int both;
 		if (bp + nb < 3) {
@@ -152,23 +245,74 @@ public class ConditionTester {
 
 	}
 
+	/**
+	 * Figures out if 2 files can fit on a storage medium
+	 * 
+	 * @param size1
+	 *            the size of the first file
+	 * @param size2
+	 *            the size of the second file
+	 * @param space
+	 *            the space remaining on the storage medium
+	 * @return If only one file can fit, the bigger one is chosen<br />
+	 *         <html>
+	 *         <table>
+	 *         <tr>
+	 *         <th>Value</th>
+	 *         <th>Case/Meaning</th>
+	 *         </tr>
+	 *         <tr>
+	 *         <td>0</td>
+	 *         <td>Neither file can fit</td>
+	 *         </tr>
+	 *         <tr>
+	 *         <td>1</td>
+	 *         <td>File 1 fits but File 2 cannot also fit</td>
+	 *         </tr>
+	 *         <tr>
+	 *         <td>2</td>
+	 *         <td>File 2 fits but File 1 cannot also fit</td>
+	 *         </tr>
+	 *         <tr>
+	 *         <td>3</td>
+	 *         <td>Both files can fit</td>
+	 *         </tr>
+	 *         </table>
+	 *         </html>
+	 */
 	public int findBestFit(int size1, int size2, int space) {
-		if (size1 + size2 <= space) {
+		if (size1 + size2 <= space) {// both
 			return 3;
-		} else if (size1 > space && size2 > space) {
+		} else if (size1 <= space && size2 <= space) {// only 1 at a time; chooses bigger one
+			return (size1 >= size2) ? 1 : 2;
+		} else if (size1 <= space) {// only file1 fits
+			return 1;
+		} else if (size2 <= space) {// only file2 fits
+			return 2;
+		} else {// neither fits
 			return 0;
-		} else {
-			if (size1 >= size2 && size1 <= space) {
-				return 1;
-			} else {
-				return 2;
-			}
 		}
+
 	}
 
+	// RETHINK
+	/**
+	 * Finds the closest color to the given RGB values
+	 * 
+	 * @param r
+	 *            red value of the color
+	 * @param g
+	 *            green value of the color
+	 * @param b
+	 *            blue value of the color
+	 */
 	public String bestMatch(int r, int g, int b) {
 		int max = (Math.max(r, Math.max(g, b)));
-		if (r == g && g == b) {
+		if (r == 255 && r == g && g == b) {
+			return "White";
+		} else if (r == 0 && r == g && g == b) {
+			return "Black";
+		} else if (r == g && g == b) {
 			return "Gray";
 		} else if (r == g && r == max) {
 			return "Yellow";

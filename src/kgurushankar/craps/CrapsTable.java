@@ -1,4 +1,4 @@
-package craps;
+package kgurushankar.craps;
 
 // Represents the craps table with two rolling dice
 

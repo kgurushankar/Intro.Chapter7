@@ -13,4 +13,4 @@
  * @author kgurushankar773
  * @since
  */
-package craps;
+package kgurushankar.craps;

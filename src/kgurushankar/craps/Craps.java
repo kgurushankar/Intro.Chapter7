@@ -1,4 +1,4 @@
-package craps;
+package kgurushankar.craps;
 
 import java.awt.*;
 import javax.swing.*;

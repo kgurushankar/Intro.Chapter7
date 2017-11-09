@@ -1,4 +1,4 @@
-package craps;
+package kgurushankar.craps;
 
 // Represents a display panel for a Craps table
 

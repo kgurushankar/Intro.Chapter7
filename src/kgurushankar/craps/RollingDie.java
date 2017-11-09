@@ -1,4 +1,4 @@
-package craps;
+package kgurushankar.craps;
 
 // Implements a rolling die object.
 
