@@ -13,4 +13,4 @@
  * @author kgurushankar773
  * @since
  */
-package kgurushankar.craps;
+package kgurushankar.intro.chapter7.craps;

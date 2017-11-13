@@ -1,4 +1,4 @@
-package kgurushankar.wages;
+package kgurushankar.intro.chapter7.wages;
 
 import java.awt.*;
 import javax.swing.*;

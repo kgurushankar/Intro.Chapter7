@@ -1,8 +1,8 @@
-package kgurushankar.conditiontester;
+package kgurushankar.intro.chapter7.conditiontester;
 
 import java.awt.geom.*;
 
-/**	
+/**
  * This is the ConditionTester template. Use this class to test simple boolean methods!
  * @author Keshav Gurushankar
  * @date 11/1/16
@@ -118,7 +118,7 @@ public class ConditionTester {
 
 	/**
 	 * Checks if the point is in the rectangle
-	 * 
+	 *
 	 * @param x
 	 *            x coordinate of the point
 	 * @param y
@@ -139,7 +139,7 @@ public class ConditionTester {
 
 	/**
 	 * Checks if point p is in rectangle r
-	 * 
+	 *
 	 * @param p
 	 *            point that is being tested
 	 * @param r
@@ -152,7 +152,7 @@ public class ConditionTester {
 
 	/**
 	 * Checks if a year is a leap year
-	 * 
+	 *
 	 * @param year
 	 *            the year being tested
 	 * @return if the year is a leap year
@@ -163,7 +163,7 @@ public class ConditionTester {
 
 	/**
 	 * Checks if a number has exactly two trailing zeroes
-	 * 
+	 *
 	 * @param num
 	 *            number being tested
 	 * @return if the number has only two trailing zeroes
@@ -174,7 +174,7 @@ public class ConditionTester {
 
 	/**
 	 * Checks which date of a pair is later
-	 * 
+	 *
 	 * @param da1
 	 *            the first date being tested
 	 * @param da2
@@ -197,7 +197,7 @@ public class ConditionTester {
 
 	/**
 	 * Checks which date of a pair is later
-	 * 
+	 *
 	 * @param m1
 	 *            the month of the first date
 	 * @param d1
@@ -211,7 +211,7 @@ public class ConditionTester {
 	 * @param y2
 	 *            the year of the second date
 	 * @return if the first date (see above) comes after the second date
-	 * 
+	 *
 	 */
 	public boolean isLater(int m1, int d1, int y1, int m2, int d2, int y2) {
 		return (y1 > y2) || ((y1 == y2) && ((m1 > m2) || ((m1 == m2) && (d1 > d2))));
@@ -223,7 +223,7 @@ public class ConditionTester {
 	 * together (1 of each), both books cost 37.95. <br />
 	 * If 3-11 books are bought, each books costs 15.95 and if 12+ books are bought,
 	 * each book costs 14.00.
-	 * 
+	 *
 	 * @param bp
 	 *            the number of "Be Prepared" books
 	 * @param nb
@@ -247,7 +247,7 @@ public class ConditionTester {
 
 	/**
 	 * Figures out if 2 files can fit on a storage medium
-	 * 
+	 *
 	 * @param size1
 	 *            the size of the first file
 	 * @param size2
@@ -298,7 +298,7 @@ public class ConditionTester {
 	// RETHINK
 	/**
 	 * Finds the closest color to the given RGB values
-	 * 
+	 *
 	 * @param r
 	 *            red value of the color
 	 * @param g

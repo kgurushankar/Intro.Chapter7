@@ -5,4 +5,4 @@
  * @author kesha
  *
  */
-package kgurushankar.excercises;
+package kgurushankar.intro.chapter7.excercises;

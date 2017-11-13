@@ -1,4 +1,4 @@
-package kgurushankar.craps;
+package kgurushankar.intro.chapter7.craps;
 
 // Implements the game of Craps logic
 

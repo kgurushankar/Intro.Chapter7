@@ -1,4 +1,4 @@
-package kgurushankar.excercises;
+package kgurushankar.intro.chapter7.excercises;
 
 import java.awt.*;
 import java.awt.event.*;

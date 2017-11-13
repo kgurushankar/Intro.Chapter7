@@ -1,4 +1,4 @@
-package kgurushankar.craps;
+package kgurushankar.intro.chapter7.craps;
 
 public class Die {
 	private int numDots;

@@ -1,4 +1,4 @@
-package kgurushankar.craps;
+package kgurushankar.intro.chapter7.craps;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

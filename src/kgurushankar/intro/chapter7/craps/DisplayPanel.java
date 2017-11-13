@@ -1,4 +1,4 @@
-package kgurushankar.craps;
+package kgurushankar.intro.chapter7.craps;
 
 // Represents a display panel for a Craps table
 
